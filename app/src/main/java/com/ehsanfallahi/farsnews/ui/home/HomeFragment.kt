@@ -15,16 +15,17 @@ import com.ehsanfallahi.farsnews.model.database.NewsDao
 import com.ehsanfallahi.farsnews.model.datasource.NewsDataSource
 import com.ehsanfallahi.farsnews.model.repository.NewsRepository
 import com.ehsanfallahi.farsnews.model.service.NewsService
-import com.ehsanfallahi.farsnews.util.ConnectivityInterceptorImpl
 import com.ehsanfallahi.farsnews.util.Constant.Companion.MY_TAG
+import com.ehsanfallahi.farsnews.util.ScopedFragment
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.coroutines.*
 
 @AndroidEntryPoint
-class HomeFragment : Fragment() {
+class HomeFragment : ScopedFragment() {
 
     private lateinit var homeViewModel: HomeViewModel
-    private lateinit var newsDao: NewsDao
+    private lateinit var  textView: TextView
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -33,26 +34,16 @@ class HomeFragment : Fragment() {
     ): View? {
         homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_home, container, false)
-//        val textView: TextView = root.findViewById(R.id.text_home)
-        homeViewModel.allNews()
-//        homeViewModel.text.observe(viewLifecycleOwner, Observer {
-//            textView.text=it.toString()
-//        })
-
-//         val newsService =NewsService(ConnectivityInterceptorImpl(this.requireContext()))
-//         val data=NewsDataSource(newsService)
-//        val repo=NewsRepository(data,newsDao)
-//        data.getNews.observe(viewLifecycleOwner, Observer {
-//            textView.text=it.toString()
-//        })
-//       ?
-
-        Log.i(MY_TAG, "apiService")
-
-        Log.i(MY_TAG, "result")
-//        GlobalScope.launch(Dispatchers.Main) {
-//            data.getAllNews()
-//        }
+         textView = root.findViewById(R.id.text_home)
+        bindUI()
         return root
+    }
+
+    private fun bindUI()=launch {
+        val news=homeViewModel.allNews.await()
+        news.observe(viewLifecycleOwner, Observer {
+            if(it==null)return@Observer
+            textView.text=it[2].items[2].title
+        })
     }
 }

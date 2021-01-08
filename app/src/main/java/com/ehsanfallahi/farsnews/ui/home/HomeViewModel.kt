@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ehsanfallahi.farsnews.model.models.Root
 import com.ehsanfallahi.farsnews.model.repository.NewsRepository
+import com.ehsanfallahi.farsnews.util.lazyDeferred
 import kotlinx.coroutines.launch
 
 class HomeViewModel @ViewModelInject
@@ -20,7 +21,7 @@ constructor(
 //    get() = _text
 //
 
-    fun allNews()=viewModelScope.launch {
+    val allNews by lazyDeferred {
         newsRepository.getNews()
     }
-    }
+  }
