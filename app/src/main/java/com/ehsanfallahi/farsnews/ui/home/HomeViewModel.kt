@@ -15,6 +15,9 @@ constructor(
     private val newsRepository: NewsRepository
     ): ViewModel() {
 
+
+    fun allNews()=viewModelScope.launch {
+
 //    private val _text = MutableLiveData<List<Root>>()
 //    val _text:LiveData<List<Root>>
 //    val text:MutableLiveData<List<Root>>
@@ -22,6 +25,7 @@ constructor(
 //
 
     val allNews by lazyDeferred {
+
         newsRepository.getNews()
     }
   }

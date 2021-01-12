@@ -2,9 +2,7 @@ package com.ehsanfallahi.farsnews.ui.home
 
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -34,6 +32,23 @@ class HomeFragment : ScopedFragment() {
     ): View? {
         homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_home, container, false)
+
+//        val textView: TextView = root.findViewById(R.id.text_home)
+        homeViewModel.allNews()
+
+        setHasOptionsMenu(true)
+
+        return root
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return super.onOptionsItemSelected(item)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu,menu)
+
          textView = root.findViewById(R.id.text_home)
         bindUI()
         return root
@@ -45,5 +60,6 @@ class HomeFragment : ScopedFragment() {
             if(it==null)return@Observer
             textView.text=it[2].items[2].title
         })
+
     }
 }
