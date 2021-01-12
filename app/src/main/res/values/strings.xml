@@ -3,4 +3,13 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="text_chosen_news">خبرهای منتخب</string>
+    <string name="text_political_news">خبرهای سیاسی</string>
+    <string name="text_economic_news">خبرهای اقتصادی</string>
+    <string name="text_sport_news">خبرهای ورزشی</string>
+    <string name="text_inspiring">خبرهای اجتماعی</string>
+    <string name="text_cultural_news">خبرهای علمی فرهنگی</string>
+    <string name="title_splash_fars">FARS</string>
+    <string name="title_splash_24">24</string>
+    <string name="title_splash_news_24">اخبار فارس در 24 ساعت گذشته</string>
 </resources>

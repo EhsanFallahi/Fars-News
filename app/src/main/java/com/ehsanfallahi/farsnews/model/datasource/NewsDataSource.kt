@@ -8,8 +8,11 @@ import com.ehsanfallahi.farsnews.model.models.Root
 import com.ehsanfallahi.farsnews.model.service.NewsService
 import com.ehsanfallahi.farsnews.util.Constant.Companion.MY_TAG
 import com.ehsanfallahi.farsnews.util.NoConnectivityException
+import javax.inject.Inject
 
-class NewsDataSource(private val newsService: NewsService) {
+class NewsDataSource
+@Inject
+constructor(private val newsService: NewsService) {
 
      private val _getNews= MutableLiveData<Root>()
      val getNews:LiveData<Root>
@@ -22,6 +25,7 @@ class NewsDataSource(private val newsService: NewsService) {
         }catch (e:NoConnectivityException){
             Log.e(MY_TAG,"No internet connection:${e.message}")
         }
+
     }
 
 
