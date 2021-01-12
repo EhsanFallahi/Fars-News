@@ -2,9 +2,7 @@ package com.ehsanfallahi.farsnews.ui.home
 
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -35,24 +33,18 @@ class HomeFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_home, container, false)
 //        val textView: TextView = root.findViewById(R.id.text_home)
         homeViewModel.allNews()
-//        homeViewModel.text.observe(viewLifecycleOwner, Observer {
-//            textView.text=it.toString()
-//        })
 
-//         val newsService =NewsService(ConnectivityInterceptorImpl(this.requireContext()))
-//         val data=NewsDataSource(newsService)
-//        val repo=NewsRepository(data,newsDao)
-//        data.getNews.observe(viewLifecycleOwner, Observer {
-//            textView.text=it.toString()
-//        })
-//       ?
+        setHasOptionsMenu(true)
 
-        Log.i(MY_TAG, "apiService")
-
-        Log.i(MY_TAG, "result")
-//        GlobalScope.launch(Dispatchers.Main) {
-//            data.getAllNews()
-//        }
         return root
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return super.onOptionsItemSelected(item)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu,menu)
     }
 }

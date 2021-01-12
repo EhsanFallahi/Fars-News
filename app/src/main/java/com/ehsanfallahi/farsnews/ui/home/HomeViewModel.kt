@@ -14,13 +14,7 @@ constructor(
     private val newsRepository: NewsRepository
     ): ViewModel() {
 
-//    private val _text = MutableLiveData<List<Root>>()
-//    val _text:LiveData<List<Root>>
-//    val text:MutableLiveData<List<Root>>
-//    get() = _text
-//
-
     fun allNews()=viewModelScope.launch {
         newsRepository.getNews()
     }
-    }
+  }
