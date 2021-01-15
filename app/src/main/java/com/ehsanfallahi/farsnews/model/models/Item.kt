@@ -1,8 +1,12 @@
 package com.ehsanfallahi.farsnews.model.models
 
+import android.os.Parcelable
+import androidx.room.Entity
 import com.ehsanfallahi.farsnews.model.models.Enclosure
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Item(
 
         @SerializedName("title")
@@ -35,4 +39,4 @@ data class Item(
         @SerializedName("categories")
     var categories:List<String>,
 
-        )
+        ):Parcelable

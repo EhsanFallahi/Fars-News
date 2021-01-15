@@ -1,9 +1,11 @@
 package com.ehsanfallahi.farsnews.model.repository
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import com.ehsanfallahi.farsnews.model.database.NewsDao
 import com.ehsanfallahi.farsnews.model.datasource.NewsDataSource
 import com.ehsanfallahi.farsnews.model.models.Root
+import com.ehsanfallahi.farsnews.util.Constant
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -15,20 +17,26 @@ class NewsRepository @Inject constructor(
     private val newsDao: NewsDao
 ) {
     init {
-        newsDataSource.getNews.observeForever{newsDownloaded->seveGetNews(newsDownloaded)}
+        Log.i(Constant.MY_TAG,"repo_init")
+        newsDataSource.getAllNews.observeForever{ newsDownloaded->saveAllNewsToDB(newsDownloaded)}
+
     }
 
-    suspend fun getNews():LiveData<List<Root>>{
+    suspend fun getNews():LiveData<Root>{
+        Log.i(Constant.MY_TAG,"repo_fun getNews()")
         return withContext(Dispatchers.IO){
             initNewsData()
+            Log.i(Constant.MY_TAG,"repo_fun getNews()_ initNewsData()")
             return@withContext newsDao.getAllNews()
         }
 
     }
 
-    private fun seveGetNews(newsDownloaded: Root?) {
+    private fun saveAllNewsToDB(newsDownloaded: Root?) {
+        Log.i(Constant.MY_TAG,"repo_fun seveGetNews()")
         GlobalScope.launch(Dispatchers.IO) {
-            newsDao.insertChosenNew(newsDownloaded!!)
+            Log.i(Constant.MY_TAG,"repo_fun seveGetNews()_GlobalScope")
+            newsDao.insertAllNews(newsDownloaded!!)
         }
     }
 
@@ -39,6 +47,7 @@ class NewsRepository @Inject constructor(
     }
 
     private suspend fun fetchNews(){
+        Log.i(Constant.MY_TAG,"repo_suspend fun fetchNews()")
         newsDataSource.getAllNews()
     }
 

@@ -10,11 +10,15 @@ import com.ehsanfallahi.farsnews.model.models.Root
 @Dao
 interface NewsDao {
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertChosenNew(root: Root)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertAllNews(root: Root)
 
     @Query("SELECT * FROM news_table")
-    fun getAllNews():LiveData<List<Root>>
+    fun getAllNews():LiveData<Root>
+
+
+
+
 
 
 

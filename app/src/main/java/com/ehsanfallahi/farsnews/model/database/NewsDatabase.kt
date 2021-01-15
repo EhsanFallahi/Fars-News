@@ -5,10 +5,11 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import com.ehsanfallahi.farsnews.model.models.Item
 import com.ehsanfallahi.farsnews.model.models.Root
 import com.ehsanfallahi.farsnews.util.Converter
 
-@Database(entities = [Root::class],version = 1,exportSchema = false)
+@Database(entities = [Root::class],version =1,exportSchema = false)
 @TypeConverters(Converter::class)
 abstract class NewsDatabase:RoomDatabase() {
 

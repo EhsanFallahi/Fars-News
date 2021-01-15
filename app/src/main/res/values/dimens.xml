@@ -4,5 +4,5 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="margin_all_home_cv">2dp</dimen>
     <dimen name="corner_radius_cv_home">5dp</dimen>
-    <dimen name="size_text_home_cv">30sp</dimen>
+    <dimen name="size_text_home_cv">20sp</dimen>
 </resources>

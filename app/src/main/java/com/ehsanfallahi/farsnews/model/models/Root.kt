@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "news_table")
 data class Root(
-        @PrimaryKey(autoGenerate = true)
+        @PrimaryKey(autoGenerate = false)
         var id:Long=0,
         @SerializedName("status")
         var status:String,

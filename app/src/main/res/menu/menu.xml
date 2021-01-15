@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group>
     <item android:id="@+id/political_news"
         android:title="@string/text_political_news"
         android:icon="@drawable/ic_check"
         />
     <item android:id="@+id/social_news"
         android:title="@string/text_social_news"
-        android:icon="@drawable/ic_check"
+        android:icon="@drawable/ic_social"
         />
     <item android:id="@+id/economic_news"
         android:title="@string/text_economic_news"
-        android:icon="@drawable/ic_check"
-        />
-    <item android:id="@+id/cultural_news"
-        android:title="@string/text_cultural_news"
-        android:icon="@drawable/ic_check"
+        android:icon="@drawable/ic_economic"
         />
     <item android:id="@+id/sport_news"
         android:title="@string/text_sport_news"
-        android:icon="@drawable/ic_check"
+        android:icon="@drawable/ic_sport"
         />
+    </group>
 </menu>

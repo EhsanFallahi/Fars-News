@@ -20,13 +20,18 @@
         android:label="news_list_fragment"
         tools:layout="@layout/news_list_fragment" >
         <action
-            android:id="@+id/action_newsListFragment_to_newsDetailFragment"
+            android:id="@+id/action_newsListFragment_to_newsDetailFragment2"
             app:destination="@id/newsDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/newsDetailFragment"
         android:name="com.ehsanfallahi.farsnews.ui.detail.NewsDetailFragment"
         android:label="news_detail_fragment"
-        tools:layout="@layout/news_detail_fragment" />
+        tools:layout="@layout/news_detail_fragment" >
+
+        <argument
+            android:name="item"
+            app:argType="com.ehsanfallahi.farsnews.model.models.Item" />
+    </fragment>
 
 </navigation>

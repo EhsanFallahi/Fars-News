@@ -4,16 +4,16 @@ import android.os.Bundle
 import android.util.Log
 import android.view.*
 import android.widget.TextView
-import android.widget.Toast
-import androidx.fragment.app.Fragment
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import com.bumptech.glide.Glide
 import com.ehsanfallahi.farsnews.R
-import com.ehsanfallahi.farsnews.model.database.NewsDao
-import com.ehsanfallahi.farsnews.model.datasource.NewsDataSource
-import com.ehsanfallahi.farsnews.model.repository.NewsRepository
-import com.ehsanfallahi.farsnews.model.service.NewsService
+import com.ehsanfallahi.farsnews.databinding.FragmentHomeBinding
 import com.ehsanfallahi.farsnews.util.Constant.Companion.MY_TAG
+import com.ehsanfallahi.farsnews.util.NewsRecyclerViewAdapter
 import com.ehsanfallahi.farsnews.util.ScopedFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -23,42 +23,39 @@ import kotlinx.coroutines.*
 class HomeFragment : ScopedFragment() {
 
     private lateinit var homeViewModel: HomeViewModel
-    private lateinit var  textView: TextView
+    private lateinit var binding: FragmentHomeBinding
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
+//        val binding=
         homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_home, container, false)
-
-//        val textView: TextView = root.findViewById(R.id.text_home)
-        homeViewModel.allNews()
-
+        binding=DataBindingUtil.inflate(inflater,R.layout.fragment_home,container,false)
         setHasOptionsMenu(true)
 
-        return root
-    }
+        binding.cvChosenNews.setOnClickListener {
+            it.findNavController().navigate(R.id.action_navigation_home_to_newsListFragment)
+        }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return super.onOptionsItemSelected(item)
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.menu,menu)
-
-         textView = root.findViewById(R.id.text_home)
         bindUI()
-        return root
+
+
+        return binding.root
     }
+
+
+
 
     private fun bindUI()=launch {
-        val news=homeViewModel.allNews.await()
+        Log.i(MY_TAG,"home_Fr_bind UI")
+        val news=homeViewModel.getAllNews.await()
+        Log.i(MY_TAG,"home_Fr_bind UI_news")
         news.observe(viewLifecycleOwner, Observer {
             if(it==null)return@Observer
-            textView.text=it[2].items[2].title
+            txt_cv_chosen_news.text=it.items[2].title
+            Glide.with(this@HomeFragment).load(it.items[2].enclosure.link).into(img_chosen_news)
         })
 
     }
