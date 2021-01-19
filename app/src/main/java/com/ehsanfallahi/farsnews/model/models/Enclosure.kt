@@ -7,7 +7,7 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class Enclosure(
         @SerializedName("link")
-     var link:String,
+     var link:String?,
 
         @SerializedName("type")
      var type:String,

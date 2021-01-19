@@ -127,7 +127,7 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cv_one_five"
+            android:id="@+id/cv_two_news"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="@dimen/margin_all_home_cv"
@@ -152,7 +152,7 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/img_one_five"
+                    android:id="@+id/img_two_news"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:scaleType="centerCrop"
@@ -246,7 +246,7 @@
                                     app:layout_constraintGuide_percent="1.0" />
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cv_home_political"
+            android:id="@+id/cv_three_news"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="@dimen/margin_all_home_cv"
@@ -268,7 +268,7 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/img_political_news"
+                    android:id="@+id/img_three_news"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:scaleType="centerCrop"
@@ -298,7 +298,7 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cv_home_economic"
+            android:id="@+id/cv_four_news"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="@dimen/margin_all_home_cv"
@@ -309,7 +309,7 @@
             app:layout_constraintBottom_toTopOf="@+id/guideline6"
             app:layout_constraintEnd_toStartOf="@+id/guideline11"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cv_home_political">
+            app:layout_constraintTop_toBottomOf="@+id/cv_three_news">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layout_content_economic"
@@ -318,7 +318,7 @@
                 android:background="#673AB7">
 
                 <ImageView
-                    android:id="@+id/img_economic_news"
+                    android:id="@+id/img_four_news"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:scaleType="centerCrop"
@@ -350,7 +350,7 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cv_home_sport"
+            android:id="@+id/cv_six_news"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="@dimen/margin_all_home_cv"
@@ -373,7 +373,7 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/img_sport_news"
+                    android:id="@+id/img_six_news"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:scaleType="centerCrop"
@@ -403,7 +403,7 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cv_home_four"
+            android:id="@+id/cv_five_news"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="@dimen/margin_all_home_cv"
@@ -425,7 +425,7 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/img_sport_four"
+                    android:id="@+id/img_five_news"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:scaleType="centerCrop"
@@ -455,7 +455,7 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cv_home_social"
+            android:id="@+id/cv_nine_news"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginEnd="@dimen/margin_all_home_cv"
@@ -475,7 +475,7 @@
                 android:background="#8BC34A">
 
                 <ImageView
-                    android:id="@+id/img_social_news"
+                    android:id="@+id/img_nine_news"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:scaleType="centerCrop"
@@ -506,7 +506,7 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cv_home_two"
+            android:id="@+id/cv_ten_news"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:theme="@style/Theme.MaterialComponents.Light"
@@ -524,7 +524,7 @@
                 android:background="#39468E">
 
                 <ImageView
-                    android:id="@+id/img_social_two"
+                    android:id="@+id/img_ten_news"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:scaleType="centerCrop"
@@ -555,7 +555,7 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cv_home_cultural"
+            android:id="@+id/cv_seven_news"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginEnd="@dimen/margin_all_home_cv"
@@ -577,7 +577,7 @@
                 android:background="#009688">
 
                 <ImageView
-                    android:id="@+id/img_cultural_news"
+                    android:id="@+id/img_seven_news"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:scaleType="centerCrop"
@@ -622,7 +622,7 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cv_home_three"
+            android:id="@+id/cv_eight_news"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginEnd="@dimen/margin_all_home_cv"
@@ -644,7 +644,7 @@
                 android:background="#E91E63">
 
                 <ImageView
-                    android:id="@+id/img_cultural_three"
+                    android:id="@+id/img_eight_news"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:scaleType="centerCrop"

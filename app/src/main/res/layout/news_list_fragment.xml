@@ -14,6 +14,7 @@
         android:layout_height="match_parent"
         tools:context=".ui.list.NewsListFragment">
 
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_list_news"
             android:layout_width="0dp"
@@ -25,14 +26,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-<!--        <ProgressBar-->
-<!--            android:id="@+id/progress"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="@+id/rv_list_news"-->
-<!--            app:layout_constraintTop_toTopOf="parent" />-->
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/progress"
             android:layout_width="80dp"
